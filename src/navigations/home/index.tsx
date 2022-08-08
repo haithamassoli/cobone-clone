@@ -1,4 +1,5 @@
 /* eslint-disable */
+import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import ActivitiesScreen from '@Screens/drawer/Activities';
 import AllDealsScreen from '@Screens/drawer/AllDeals';
