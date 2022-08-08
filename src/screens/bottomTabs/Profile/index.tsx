@@ -2,12 +2,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const NewInScreen = () => {
+const ProfileScreen = () => {
   return (
-    <View style={{flex: 1}}>
-      <Text>NewInScreen</Text>
+    <View>
+      <Text>ProfileScreen</Text>
     </View>
   );
 };
 
-export default NewInScreen;
+export default ProfileScreen;

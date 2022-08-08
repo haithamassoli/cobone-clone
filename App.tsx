@@ -19,7 +19,7 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <StatusBar barStyle={'light-content'} />
       <Route />
     </SafeAreaView>

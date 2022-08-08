@@ -2,12 +2,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const NewInScreen = () => {
+const SearchScreen = () => {
   return (
-    <View style={{flex: 1}}>
-      <Text>NewInScreen</Text>
+    <View>
+      <Text>SearchScreen</Text>
     </View>
   );
 };
 
-export default NewInScreen;
+export default SearchScreen;
