@@ -21,9 +21,30 @@ export default function HomeDrawer() {
   return (
     <Drawer.Navigator
       screenOptions={({navigation}) => ({
-        drawerStyle: {
-          backgroundColor: Colors.primary400,
+        drawerItemStyle: {
+          backgroundColor: Colors.lightGray,
+          paddingVertical: 2,
+          paddingHorizontal: 6,
+          marginVertical: 6,
+          marginHorizontal: 12,
+          borderRadius: 10,
         },
+        drawerLabelStyle: {
+          fontSize: 16,
+          fontWeight: 'bold',
+        },
+        drawerActiveTintColor: Colors.primary600,
+        drawerIcon: ({color, size}) => (
+          <Feather
+            name="arrow-left"
+            style={{
+              position: 'absolute',
+              right: 0,
+            }}
+            size={size}
+            color={color}
+          />
+        ),
         headerStyle: {
           backgroundColor: Colors.primary400,
         },
@@ -61,16 +82,58 @@ export default function HomeDrawer() {
           </View>
         ),
       })}>
-      <Drawer.Screen name="NewIn" component={NewInScreen} />
-      <Drawer.Screen name="BestSellers" component={BestSellersScreen} />
-      <Drawer.Screen name="Food" component={FoodScreen} />
-      <Drawer.Screen name="Activities" component={ActivitiesScreen} />
-      <Drawer.Screen name="Auto" component={AutoScreen} />
-      <Drawer.Screen name="Beauty" component={BeautyScreen} />
-      <Drawer.Screen name="Wellness" component={WellnessScreen} />
-      <Drawer.Screen name="Jewellery" component={JewelleryScreen} />
-      <Drawer.Screen name="Getaways" component={GetawaysScreen} />
-      <Drawer.Screen name="AllDeals" component={AllDealsScreen} />
+      <Drawer.Screen
+        name="NewIn"
+        options={{title: 'جديدنا'}}
+        component={NewInScreen}
+      />
+      <Drawer.Screen
+        name="BestSellers"
+        options={{title: 'الأكثر مبيعا'}}
+        component={BestSellersScreen}
+      />
+      <Drawer.Screen
+        name="Food"
+        options={{title: 'مطاعم'}}
+        component={FoodScreen}
+      />
+      <Drawer.Screen
+        name="Activities"
+        options={{title: 'أنشطة'}}
+        component={ActivitiesScreen}
+      />
+      <Drawer.Screen
+        name="Auto"
+        options={{title: 'سيارات'}}
+        component={AutoScreen}
+      />
+      <Drawer.Screen
+        name="Beauty"
+        options={{
+          title: 'جمال',
+        }}
+        component={BeautyScreen}
+      />
+      <Drawer.Screen
+        name="Wellness"
+        options={{title: 'صحة'}}
+        component={WellnessScreen}
+      />
+      <Drawer.Screen
+        name="Jewellery"
+        options={{title: 'مجوهرات'}}
+        component={JewelleryScreen}
+      />
+      <Drawer.Screen
+        name="Getaways"
+        options={{title: 'رحلات'}}
+        component={GetawaysScreen}
+      />
+      <Drawer.Screen
+        name="AllDeals"
+        options={{title: 'جميع الصفقات'}}
+        component={AllDealsScreen}
+      />
     </Drawer.Navigator>
   );
 }
