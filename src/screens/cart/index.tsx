@@ -1,7 +1,14 @@
 /* eslint-disable */
 
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, Image} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TextInput,
+  Pressable,
+} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import Feather from 'react-native-vector-icons/Feather';
 import ProductsData from '@Src/data/Products';
@@ -19,6 +26,8 @@ const CartScreen = () => {
   // @ts-ignore
   const {cart} = useSelector(state => state.cart);
   const dispatch = useDispatch();
+  const [cobone, setCobone] = useState('');
+
   const cartItems = cart.map((item: Cart) => {
     const product = ProductsData.find(product => product.id === item.id);
     return {
@@ -29,7 +38,7 @@ const CartScreen = () => {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView style={{flex: 1, backgroundColor: Colors.light}}>
         {cartItems.length > 0 &&
           cartItems.map((item: CartItem, index: number) => (
             <View
@@ -113,6 +122,99 @@ const CartScreen = () => {
           </Text>
         </View>
       )}
+      <View
+        style={{
+          borderTopWidth: 1,
+          borderTopColor: Colors.dark,
+          paddingHorizontal: 12,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: Colors.light,
+          height: 40,
+        }}>
+        <TextInput
+          placeholder="رمز الخصم"
+          style={{
+            backgroundColor: Colors.light,
+            borderRadius: 12,
+            width: '80%',
+          }}
+          value={cobone}
+          onChangeText={setCobone}
+        />
+        <Pressable>
+          <Text
+            style={{
+              fontSize: 12,
+              borderRadius: 12,
+              paddingTop: 6,
+              paddingHorizontal: 12,
+              color: Colors.light,
+              backgroundColor:
+                cobone.length > 0 ? Colors.primary700 : Colors.gray,
+            }}>
+            تطبيق
+          </Text>
+        </Pressable>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: 12,
+          backgroundColor: Colors.lightGray,
+        }}>
+        <Text
+          style={{
+            fontSize: 12,
+            color: Colors.dark,
+          }}>
+          السعر الكلي
+        </Text>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: 'bold',
+            color: Colors.dark,
+          }}>
+          {cartItems.reduce(
+            // @ts-ignore
+            (acc, item) => acc + item.price * item.quantity,
+            0,
+          )}
+          SAR
+        </Text>
+      </View>
+      <Text
+        style={{
+          fontSize: 14,
+          color: Colors.dark,
+          textAlign: 'center',
+          backgroundColor: Colors.lightGray,
+        }}>
+        تشمل أسعارنا ضريبة القيمة المضافة
+      </Text>
+      <Pressable
+        style={{
+          backgroundColor: Colors.lightSecondary,
+          paddingTop: 12,
+          paddingHorizontal: 12,
+          marginVertical: 12,
+          borderRadius: 12,
+          alignSelf: 'center',
+          width: '70%',
+        }}>
+        <Text
+          style={{
+            fontSize: 16,
+            color: Colors.light,
+            textAlign: 'center',
+          }}>
+          التالي
+        </Text>
+      </Pressable>
     </>
   );
 };
