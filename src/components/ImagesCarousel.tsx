@@ -1,16 +1,17 @@
 /* eslint-disable */
 import {View, ScrollView, Image} from 'react-native';
 import React, {useState, useRef} from 'react';
-import {CarouselData} from '@Types/Data';
+import {CarouselDataType} from '@Types/Data';
 import {screenWidth} from '@Utils/Helper';
 import {useEffect} from 'react';
 import Colors from '@GlobalStyle/Colors';
 
 type Props = {
-  images: CarouselData[];
+  images: CarouselDataType[];
+  height?: number;
 };
 
-const ImagesCarousel = ({images}: Props) => {
+const ImagesCarousel = ({images, height = 160}: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const scrollRef = useRef<ScrollView>(null);
   useEffect(() => {
@@ -45,7 +46,7 @@ const ImagesCarousel = ({images}: Props) => {
         onMomentumScrollEnd={setImageIndex}
         pagingEnabled>
         {images.map((image, index) => (
-          <View key={index} style={{flex: 1, marginTop: 50}}>
+          <View key={index} style={{flex: 1}}>
             <Image
               key={index}
               source={{
@@ -53,7 +54,7 @@ const ImagesCarousel = ({images}: Props) => {
               }}
               style={{
                 width: screenWidth,
-                height: 160,
+                height,
                 resizeMode: 'cover',
               }}
             />

@@ -4,7 +4,7 @@ import {NavigatorScreenParams} from '@react-navigation/native';
 export type BottomTabParamList = {
   HomeStack: NavigatorScreenParams<HomeStackParamList>;
   Notifications: undefined;
-  // Search: undefined;
+  Search: undefined;
   Settings: undefined;
   Profile: undefined;
 };

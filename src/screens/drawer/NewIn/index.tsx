@@ -14,10 +14,11 @@ const NewInScreen = ({navigation}: Props) => {
   //  get category in array
   const categories = ProductsData.map(item => item.category);
   const uniqueCategories = [...new Set(categories)];
-  console.log(uniqueCategories);
   return (
     <ScrollView style={{flex: 1, marginTop: 12}}>
-      <ImagesCarousel images={CarouselData} />
+      <View style={{marginTop: 50}}>
+        <ImagesCarousel images={CarouselData} />
+      </View>
       {uniqueCategories.map((item, index) => (
         <View key={index}>
           <Text>{item}</Text>

@@ -17,7 +17,7 @@ const Colors = {
   primaryDark: '#FFDD3C',
   primaryDarkest: '#FFD400',
   gray: '#8597a1',
-  lightGray: '#f1f5f7',
+  lightGray: '#D3D3D3,',
   overlay: 'rgba(28,29,28,0.5)',
 };
 
