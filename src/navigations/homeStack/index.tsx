@@ -168,7 +168,19 @@ export default function HomeStack() {
       />
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
-      <Stack.Screen name="Cart" component={CartScreen} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTitle: 'عربة التسوق',
+          headerTitleStyle: {
+            fontSize: 18,
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+        }}
+        name="Cart"
+        component={CartScreen}
+      />
     </Stack.Navigator>
   );
 }

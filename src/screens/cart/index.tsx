@@ -29,9 +29,6 @@ const CartScreen = () => {
 
   return (
     <>
-      <View>
-        <Text>Cart</Text>
-      </View>
       <ScrollView>
         {cartItems.length > 0 &&
           cartItems.map((item: CartItem, index: number) => (
