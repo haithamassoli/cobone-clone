@@ -13,9 +13,9 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       const itemInCart = state.cart.find(item => item.id === action.payload.id);
       if (itemInCart) {
-        itemInCart.quantity++;
+        itemInCart.quantity = action.payload.quantity;
       } else {
-        state.cart.push({...action.payload});
+        state.cart.push(action.payload);
       }
     },
     incrementQuantity: (state, action) => {

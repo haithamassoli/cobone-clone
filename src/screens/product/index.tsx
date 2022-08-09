@@ -29,7 +29,6 @@ const ProductScreen = ({navigation, route}: Props) => {
   const goBack = () => {
     navigation.goBack();
   };
-  console.log(product.id);
   const addToCartBtn = () => {
     dispatch(addToCart({id: product.id, quantity}));
     navigation.navigate('Cart');
@@ -92,7 +91,9 @@ const ProductScreen = ({navigation, route}: Props) => {
               }}>
               العدد
             </Text>
-            <ProductAmount />
+            {product.id && (
+              <ProductAmount quantity={quantity} setQuantity={setQuantity} />
+            )}
           </View>
           <View>
             <Text

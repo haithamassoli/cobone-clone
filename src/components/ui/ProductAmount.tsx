@@ -1,12 +1,29 @@
 /* eslint-disable */
 
-import React, {useState} from 'react';
+import React from 'react';
 import Colors from '@GlobalStyle/Colors';
 import Feather from 'react-native-vector-icons/Feather';
-import {View, Pressable, Text, TextInput} from 'react-native';
+import {View, Pressable, Text} from 'react-native';
+import {decrementQuantity, incrementQuantity} from '@Redux/cartSlice';
+import {useDispatch} from 'react-redux';
 
-const ProductAmount = () => {
-  const [number, onChangeNumber] = useState('1');
+type InProduct = Props & {
+  id?: never;
+  quantity: number;
+  setQuantity: React.Dispatch<React.SetStateAction<number>>;
+};
+
+type InCart = Props & {
+  id: number;
+  setQuantity?: never;
+};
+
+type Props = {
+  quantity: number;
+};
+
+const ProductAmount = ({id, quantity, setQuantity}: InProduct | InCart) => {
+  const dispatch = useDispatch();
   return (
     <View
       style={{
@@ -26,8 +43,11 @@ const ProductAmount = () => {
           backgroundColor: Colors.lightGray,
         }}
         onPress={() => {
-          if (+number !== 1) {
-            onChangeNumber((+number - 1).toString());
+          if (id) {
+            dispatch(decrementQuantity(id));
+          } else {
+            // @ts-ignore
+            setQuantity(prev => (prev === 1 ? 1 : prev - 1));
           }
         }}>
         <Feather name="minus" size={18} color={Colors.primary400} />
@@ -36,14 +56,11 @@ const ProductAmount = () => {
         style={{
           justifyContent: 'center',
           alignItems: 'center',
+          padding: 6,
         }}>
-        <TextInput
-          keyboardType="number-pad"
-          onChangeText={onChangeNumber}
-          value={number}
-          maxLength={2}
-          style={{color: 'black', fontSize: 22, textAlign: 'center'}}
-        />
+        <Text style={{color: 'black', fontSize: 22, textAlign: 'center'}}>
+          {quantity}
+        </Text>
       </View>
       <Pressable
         style={{
@@ -57,7 +74,12 @@ const ProductAmount = () => {
           backgroundColor: Colors.lightGray,
         }}
         onPress={() => {
-          onChangeNumber((+number + 1).toString());
+          if (id) {
+            dispatch(incrementQuantity(id));
+          } else {
+            // @ts-ignore
+            setQuantity(prev => prev + 1);
+          }
         }}>
         <Feather name="plus" size={16} color={Colors.primary400} />
       </Pressable>

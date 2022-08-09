@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView, Image} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import Feather from 'react-native-vector-icons/Feather';
@@ -9,16 +9,16 @@ import {Cart} from '@Types/Redux';
 import {ProductsDataType} from '@Types/Data';
 import Colors from '@GlobalStyle/Colors';
 import ProductAmount from '@Components/ui/ProductAmount';
-import {removeItem} from '@Redux/cartSlice';
+import {removeItem, addToCart} from '@Redux/cartSlice';
 
 type CartItem = ProductsDataType & {
   quantity: number;
 };
 
 const CartScreen = () => {
-  const dispatch = useDispatch();
   // @ts-ignore
   const {cart} = useSelector(state => state.cart);
+  const dispatch = useDispatch();
   const cartItems = cart.map((item: Cart) => {
     const product = ProductsData.find(product => product.id === item.id);
     return {
@@ -26,7 +26,6 @@ const CartScreen = () => {
       quantity: item.quantity,
     };
   });
-  console.log(cartItems);
 
   return (
     <>
@@ -35,9 +34,9 @@ const CartScreen = () => {
       </View>
       <ScrollView>
         {cartItems.length > 0 &&
-          cartItems.map((item: CartItem) => (
+          cartItems.map((item: CartItem, index: number) => (
             <View
-              key={item.id}
+              key={index}
               style={{
                 borderBottomColor: Colors.gray,
                 borderBottomWidth: 1,
@@ -83,7 +82,7 @@ const CartScreen = () => {
                     }}
                   />
                   <View style={{marginHorizontal: 12}}>
-                    <ProductAmount />
+                    <ProductAmount quantity={item.quantity} id={item.id} />
                   </View>
                   <Text
                     style={{
