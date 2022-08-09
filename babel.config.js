@@ -12,6 +12,7 @@ module.exports = {
           '@GlobalStyle': './src/styles',
           '@Assets': './src/assets',
           '@Utils': './src/utils',
+          '@Redux': './src/redux',
           '@Src': './src',
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.png'],

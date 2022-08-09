@@ -15,6 +15,7 @@
       "@GlobalStyle/*": ["src/styles/*"],
       "@Assets/*": ["src/assets/*"],
       "@Utils/*": ["src/utils/*"],
+      "@Redux/*": ["src/redux/*"],
       "@Src/*": ["src/*"]
     }                               /* Skip type checking all .d.ts files. */
   }

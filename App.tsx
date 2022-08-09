@@ -4,6 +4,8 @@ import {StatusBar, I18nManager} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import RNRestart from 'react-native-restart';
 import Route from './src/navigations/main';
+import {store} from '@Redux/store';
+import {Provider} from 'react-redux';
 
 const App = () => {
   useEffect(() => {
@@ -21,7 +23,9 @@ const App = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar barStyle={'light-content'} />
-      <Route />
+      <Provider store={store}>
+        <Route />
+      </Provider>
     </SafeAreaView>
   );
 };
