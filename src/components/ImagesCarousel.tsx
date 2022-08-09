@@ -80,7 +80,7 @@ const ImagesCarousel = ({images, height = 160}: Props) => {
               borderRadius: 5,
               borderColor:
                 index === selectedIndex ? Colors.primary600 : Colors.gray,
-              borderWidth: 1,
+              borderWidth: 4,
               backgroundColor:
                 index === selectedIndex ? Colors.primary600 : Colors.gray,
               margin: 4,

@@ -4,7 +4,7 @@ export interface CartState {
   cart: Cart[];
 }
 
-type Cart = {
+export type Cart = {
   id: number;
   quantity: number;
 };

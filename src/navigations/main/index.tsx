@@ -9,7 +9,6 @@ import SettingsScreen from '@Screens/bottomTabs/Settings';
 import ProfileScreen from '@Screens/bottomTabs/Profile';
 import Colors from '@GlobalStyle/Colors';
 import HomeStack from '../homeStack';
-import SearchScreen from '@Screens/bottomTabs/Search';
 
 const BottomTabs = createBottomTabNavigator<BottomTabParamList>();
 
@@ -53,15 +52,6 @@ export default function Route() {
                 color={color}
               />
             ),
-          }}
-        />
-        <BottomTabs.Screen
-          name="Search"
-          component={SearchScreen}
-          options={{
-            tabBarButton: () => {
-              return null;
-            },
           }}
         />
         <BottomTabs.Screen

@@ -4,7 +4,6 @@ import {NavigatorScreenParams} from '@react-navigation/native';
 export type BottomTabParamList = {
   HomeStack: NavigatorScreenParams<HomeStackParamList>;
   Notifications: undefined;
-  Search: undefined;
   Settings: undefined;
   Profile: undefined;
 };
@@ -24,4 +23,6 @@ export type HomeDrawerParamList = {
 export type HomeStackParamList = {
   HomeDrawer: NavigatorScreenParams<HomeDrawerParamList>;
   Product: {productId: number};
+  Search: undefined;
+  Cart: undefined;
 };

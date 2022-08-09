@@ -13,12 +13,14 @@ import JewelleryScreen from '@Screens/drawer/Jewellery';
 import WellnessScreen from '@Screens/drawer/Wellness';
 import Colors from '@GlobalStyle/Colors';
 import {Image, Text, View} from 'react-native';
-import ProductNavigation from '.';
 import NewInScreen from '@Screens/drawer/NewIn';
+import {useSelector} from 'react-redux';
 
 const Drawer = createDrawerNavigator();
 
 export default function HomeDrawer() {
+  // @ts-ignore
+  const {cart} = useSelector(state => state.cart);
   return (
     <Drawer.Navigator
       screenOptions={({navigation}) => ({
@@ -29,6 +31,9 @@ export default function HomeDrawer() {
           marginVertical: 6,
           marginHorizontal: 12,
           borderRadius: 10,
+        },
+        drawerContentContainerStyle: {
+          backgroundColor: Colors.light,
         },
         drawerLabelStyle: {
           fontSize: 16,
@@ -98,6 +103,7 @@ export default function HomeDrawer() {
                   style={{
                     marginHorizontal: 12,
                   }}
+                  onPress={() => navigation.navigate('Search')}
                 />
               </View>
               <View
@@ -141,49 +147,43 @@ export default function HomeDrawer() {
                     style={{marginHorizontal: 12}}
                     color={Colors.light}
                   />
-                  <Feather
-                    name="shopping-cart"
-                    size={24}
-                    color={Colors.light}
-                    onPress={() => navigation.navigate('Cart')}
-                  />
+                  <View>
+                    {cart.length > 0 && (
+                      <View
+                        style={{
+                          position: 'absolute',
+                          top: -8,
+                          right: -6,
+                          width: 20,
+                          height: 20,
+                          zIndex: 10,
+                          borderRadius: 10,
+                          backgroundColor: Colors.gray,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                        }}>
+                        <Text
+                          style={{
+                            color: Colors.light,
+                            fontSize: 12,
+                            fontWeight: 'bold',
+                          }}>
+                          {cart.length}
+                        </Text>
+                      </View>
+                    )}
+                    <Feather
+                      name="shopping-cart"
+                      size={24}
+                      color={Colors.light}
+                      onPress={() => navigation.navigate('Cart')}
+                    />
+                  </View>
                 </View>
               </View>
             </>
           );
         },
-        // headerLeft: () => (
-        //   <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-        //     <Feather
-        //       name="menu"
-        //       style={{marginHorizontal: 12}}
-        //       size={24}
-        //       color={Colors.light}
-        //       onPress={() => {
-        //         navigation.openDrawer();
-        //       }}
-        //     />
-        //     <Image
-        //       source={require('../../assets/cobone-logo.png')}
-        //       style={{
-        //         width: 120,
-        //         height: 90,
-        //         resizeMode: 'contain',
-        //       }}
-        //     />
-        //   </View>
-        // ),
-        // headerRight: () => (
-        //   <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-        //     <Feather name="heart" size={24} color={Colors.light} />
-        //     <Feather
-        //       name="shopping-cart"
-        //       style={{marginHorizontal: 12}}
-        //       size={24}
-        //       color={Colors.light}
-        //     />
-        //   </View>
-        // ),
       })}>
       <Drawer.Screen
         name="NewIn"
