@@ -7,6 +7,11 @@ export type ProductsDataType = {
   title: string;
   description: string;
   price: number;
-  discount?: number;
-  image: string;
+  discountPercentage?: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
 };
