@@ -10,7 +10,6 @@ import NotificationsScreen from '@Screens/bottomTabs/Notifications';
 import SettingsScreen from '@Screens/bottomTabs/Settings';
 import ProfileScreen from '@Screens/bottomTabs/Profile';
 import Colors from '@GlobalStyle/Colors';
-import {View} from 'react-native';
 
 const BottomTabs = createMaterialBottomTabNavigator<BottomTabParamList>();
 
@@ -24,19 +23,7 @@ export default function Route() {
         barStyle={{backgroundColor: Colors.primary400}}
         screenOptions={() => ({
           tabBarLabel: '',
-        })}
-        // labeled={false}
-        // screenOptions={() => ({
-        //   tabBarShowLabel: false,
-        //   headerLeft: () => <Feather name="menu" size={24} color="#333" />,
-        //   headerRight: () => <Feather name="bell" size={24} color="#333" />,
-        //   tabBarActiveTintColor: Colors.light,
-        //   tabBarInactiveTintColor: Colors.light,
-        //   tabBarStyle: {
-        //     backgroundColor: Colors.primary400,
-        //   },
-        // })}
-      >
+        })}>
         <BottomTabs.Screen
           name="HomeDrawer"
           component={HomeDrawer}
@@ -44,7 +31,6 @@ export default function Route() {
             tabBarIcon: ({color}) => (
               <Feather name="home" size={24} color={color} />
             ),
-            // headerShown: false,
           }}
         />
         <BottomTabs.Screen
@@ -54,7 +40,6 @@ export default function Route() {
             tabBarIcon: ({color}) => (
               <Feather name="bell" size={24} color={color} />
             ),
-            // headerShown: false,
           }}
         />
         {/* <BottomTabs.Screen
@@ -76,7 +61,6 @@ export default function Route() {
             tabBarIcon: ({color}) => (
               <Feather name="settings" size={24} color={color} />
             ),
-            // headerShown: false,
           }}
         />
         <BottomTabs.Screen
@@ -86,8 +70,6 @@ export default function Route() {
             tabBarIcon: ({color}) => (
               <Feather name="user" size={24} color={color} />
             ),
-            // headerShown: false,
-            // tabBarShowLabel: false,
           }}
         />
       </BottomTabs.Navigator>
