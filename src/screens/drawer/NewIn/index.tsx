@@ -1,12 +1,14 @@
 /* eslint-disable */
 import React from 'react';
-import {View, Text} from 'react-native';
+import ImagesCarousel from '@Components/ImagesCarousel';
+import CarouselData from '@Src/data/Carousel';
+import {View, Text, ScrollView, Image} from 'react-native';
 
 const NewInScreen = () => {
   return (
-    <View style={{flex: 1}}>
-      <Text>NewInScreen</Text>
-    </View>
+    <ScrollView style={{flex: 1, marginTop: 16}}>
+      <ImagesCarousel images={CarouselData} />
+    </ScrollView>
   );
 };
 

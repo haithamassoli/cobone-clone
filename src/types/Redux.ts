@@ -1,12 +1,7 @@
 /* eslint-disable */
-export type cart = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
-};
+
+import {ProductsData} from './Data';
 
 export interface CartState {
-  cart: cart[];
+  cart: ProductsData[];
 }
