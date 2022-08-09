@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -16,13 +16,17 @@ import {Cart} from '@Types/Redux';
 import {ProductsDataType} from '@Types/Data';
 import Colors from '@GlobalStyle/Colors';
 import ProductAmount from '@Components/ui/ProductAmount';
-import {removeItem, addToCart} from '@Redux/cartSlice';
+import {removeItem} from '@Redux/cartSlice';
+import {StackScreenProps} from '@react-navigation/stack';
+import {HomeStackParamList} from '@Types/Navigation';
 
 type CartItem = ProductsDataType & {
   quantity: number;
 };
 
-const CartScreen = () => {
+type Props = StackScreenProps<HomeStackParamList, 'Cart'>;
+
+const CartScreen = ({navigation}: Props) => {
   // @ts-ignore
   const {cart} = useSelector(state => state.cart);
   const dispatch = useDispatch();
@@ -50,13 +54,18 @@ const CartScreen = () => {
                 justifyContent: 'flex-start',
                 alignItems: 'center',
               }}>
-              <Image
-                source={{uri: item.thumbnail}}
-                style={{
-                  width: 100,
-                  height: 100,
-                }}
-              />
+              <Pressable
+                onPress={() =>
+                  navigation.navigate('Product', {productId: item.id})
+                }>
+                <Image
+                  source={{uri: item.thumbnail}}
+                  style={{
+                    width: 100,
+                    height: 100,
+                  }}
+                />
+              </Pressable>
               <View
                 style={{
                   flex: 1,
@@ -66,6 +75,9 @@ const CartScreen = () => {
                   padding: 10,
                 }}>
                 <Text
+                  onPress={() =>
+                    navigation.navigate('Product', {productId: item.id})
+                  }
                   style={{
                     fontSize: 16,
                     color: Colors.dark,
