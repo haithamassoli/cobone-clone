@@ -1,15 +1,12 @@
 /* eslint-disable */
 import React from 'react';
-import Colors from '@GlobalStyle/Colors';
 import {createStackNavigator} from '@react-navigation/stack';
-
-import {View} from 'react-native';
-import NewInScreen from '@Screens/drawer/NewIn';
 import ProductScreen from '@Screens/product';
+import HomeDrawer from '../homeDrawer';
 
 const Stack = createStackNavigator();
 
-export default function ProductNavigation() {
+export default function HomeStack() {
   return (
     <Stack.Navigator
       screenOptions={() => ({
@@ -51,11 +48,11 @@ export default function ProductNavigation() {
       //     );
       //   },
       // })}
-      initialRouteName="NewIn">
+      initialRouteName="HomeDrawer">
       <Stack.Screen
         options={{headerTitle: 'جديدنا'}}
-        name="NewIn"
-        component={NewInScreen}
+        name="HomeDrawer"
+        component={HomeDrawer}
       />
       <Stack.Screen name="Product" component={ProductScreen} />
     </Stack.Navigator>

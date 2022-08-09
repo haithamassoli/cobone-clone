@@ -2,18 +2,11 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 export type BottomTabParamList = {
-  HomeDrawer: NavigatorScreenParams<HomeDrawerParamList>;
+  HomeStack: NavigatorScreenParams<HomeStackParamList>;
   Notifications: undefined;
   // Search: undefined;
   Settings: undefined;
   Profile: undefined;
-};
-
-export type SubjectsStackParamList = {
-  Plan: undefined;
-  Subject: {subjectId: number};
-  SubjectWebView: {url: string};
-  SubjectFullPost: {post?: string};
 };
 
 export type HomeDrawerParamList = {
@@ -26,4 +19,9 @@ export type HomeDrawerParamList = {
   Jewellery: undefined;
   Getaways: undefined;
   AllDeals: undefined;
+};
+
+export type HomeStackParamList = {
+  HomeDrawer: NavigatorScreenParams<HomeDrawerParamList>;
+  Product: {productId: number};
 };

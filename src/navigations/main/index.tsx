@@ -4,12 +4,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
 import type {BottomTabParamList} from '@Types/Navigation';
-import HomeDrawer from '../home';
 import NotificationsScreen from '@Screens/bottomTabs/Notifications';
 // import SearchScreen from '@Screens/bottomTabs/Search';
 import SettingsScreen from '@Screens/bottomTabs/Settings';
 import ProfileScreen from '@Screens/bottomTabs/Profile';
 import Colors from '@GlobalStyle/Colors';
+import HomeStack from '../homeStack';
 
 const BottomTabs = createMaterialBottomTabNavigator<BottomTabParamList>();
 
@@ -17,7 +17,7 @@ export default function Route() {
   return (
     <NavigationContainer>
       <BottomTabs.Navigator
-        initialRouteName="HomeDrawer"
+        initialRouteName="HomeStack"
         activeColor={Colors.light}
         inactiveColor={Colors.light}
         barStyle={{backgroundColor: Colors.primary400}}
@@ -25,8 +25,8 @@ export default function Route() {
           tabBarLabel: '',
         })}>
         <BottomTabs.Screen
-          name="HomeDrawer"
-          component={HomeDrawer}
+          name="HomeStack"
+          component={HomeStack}
           options={{
             tabBarIcon: ({color}) => (
               <Feather name="home" size={24} color={color} />
