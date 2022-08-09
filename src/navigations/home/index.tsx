@@ -10,10 +10,10 @@ import BestSellersScreen from '@Screens/drawer/BestSellers';
 import FoodScreen from '@Screens/drawer/Food';
 import GetawaysScreen from '@Screens/drawer/Getaways';
 import JewelleryScreen from '@Screens/drawer/Jewellery';
-import NewInScreen from '@Screens/drawer/NewIn';
 import WellnessScreen from '@Screens/drawer/Wellness';
 import Colors from '@GlobalStyle/Colors';
 import {Image, Text, View} from 'react-native';
+import ProductNavigation from '../product';
 
 const Drawer = createDrawerNavigator();
 
@@ -49,7 +49,7 @@ export default function HomeDrawer() {
           backgroundColor: Colors.primary400,
         },
         headerTitle: '',
-        header(props) {
+        header() {
           return (
             <>
               <View
@@ -185,9 +185,9 @@ export default function HomeDrawer() {
         // ),
       })}>
       <Drawer.Screen
-        name="NewIn"
+        name="ProductNavigation"
         options={{title: 'جديدنا'}}
-        component={NewInScreen}
+        component={ProductNavigation}
       />
       <Drawer.Screen
         name="BestSellers"

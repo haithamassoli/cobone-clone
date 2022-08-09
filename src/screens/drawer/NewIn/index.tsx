@@ -6,7 +6,7 @@ import {View, Text, ScrollView, Image} from 'react-native';
 
 const NewInScreen = () => {
   return (
-    <ScrollView style={{flex: 1, marginTop: 16}}>
+    <ScrollView style={{flex: 1, marginTop: 12}}>
       <ImagesCarousel images={CarouselData} />
     </ScrollView>
   );

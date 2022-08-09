@@ -1,11 +1,12 @@
 /* eslint-disable */
 
-export type CarouselData = string;
+export type CarouselDataType = string;
 
-export type ProductsData = {
+export type ProductsDataType = {
   id: number;
   title: string;
+  description: string;
   price: number;
+  discount?: number;
   image: string;
-  quantity: number;
 };

@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import {CarouselData as CarouselDataType} from '@Types/Data';
+import {CarouselDataType} from '@Types/Data';
 
 const CarouselData: CarouselDataType[] = [
   'https://cdn.cobone.com/onsite-banners/2022/kids/july/schools-out-ksa-riyadh-ar.jpg?v=9',
