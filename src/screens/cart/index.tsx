@@ -19,6 +19,7 @@ import ProductAmount from '@Components/ui/ProductAmount';
 import {removeItem} from '@Redux/cartSlice';
 import {StackScreenProps} from '@react-navigation/stack';
 import {HomeStackParamList} from '@Types/Navigation';
+import Button from '@Components/ui/Button';
 
 type CartItem = ProductsDataType & {
   quantity: number;
@@ -208,16 +209,10 @@ const CartScreen = ({navigation}: Props) => {
         }}>
         تشمل أسعارنا ضريبة القيمة المضافة
       </Text>
-      <Pressable
-        style={{
-          backgroundColor: Colors.secondary,
-          paddingTop: 12,
-          paddingHorizontal: 12,
-          marginVertical: 12,
-          borderRadius: 12,
-          alignSelf: 'center',
-          width: '70%',
-        }}>
+      <Button
+        color={Colors.secondary}
+        // @ts-ignore
+        style={{width: '70%', alignSelf: 'center'}}>
         <Text
           style={{
             fontSize: 16,
@@ -226,7 +221,7 @@ const CartScreen = ({navigation}: Props) => {
           }}>
           التالي
         </Text>
-      </Pressable>
+      </Button>
     </>
   );
 };
