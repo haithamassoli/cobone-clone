@@ -32,7 +32,6 @@ const ImagesCarousel = ({images, height = 160}: Props) => {
     const contentOffset = event.nativeEvent.contentOffset;
     const viewSize = event.nativeEvent.layoutMeasurement;
 
-    // Divide the horizontal offset by the width of the view to see which page is visible
     const selectedIndex = Math.floor(contentOffset.x / viewSize.width);
     setSelectedIndex(selectedIndex);
   };
