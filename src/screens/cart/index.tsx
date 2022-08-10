@@ -210,7 +210,7 @@ const CartScreen = ({navigation}: Props) => {
       </Text>
       <Pressable
         style={{
-          backgroundColor: Colors.lightSecondary,
+          backgroundColor: Colors.secondary,
           paddingTop: 12,
           paddingHorizontal: 12,
           marginVertical: 12,

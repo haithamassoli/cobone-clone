@@ -12,19 +12,15 @@ import GetawaysScreen from '@Screens/drawer/Getaways';
 import JewelleryScreen from '@Screens/drawer/Jewellery';
 import WellnessScreen from '@Screens/drawer/Wellness';
 import Colors from '@GlobalStyle/Colors';
-import {Image, Text, View} from 'react-native';
 import NewInScreen from '@Screens/drawer/NewIn';
-import {useSelector} from 'react-redux';
 import Header from '@Components/Header';
 
 const Drawer = createDrawerNavigator();
 
 export default function HomeDrawer() {
-  // @ts-ignore
-  const {cart} = useSelector(state => state.cart);
   return (
     <Drawer.Navigator
-      screenOptions={({navigation}) => ({
+      screenOptions={() => ({
         drawerItemStyle: {
           backgroundColor: Colors.lightGray,
           paddingVertical: 2,

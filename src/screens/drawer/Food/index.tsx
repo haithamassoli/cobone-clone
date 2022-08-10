@@ -4,8 +4,8 @@ import {View, Text} from 'react-native';
 
 const FoodScreen = () => {
   return (
-    <View>
-      <Text>FoodScreenScreen</Text>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>FoodScreen</Text>
     </View>
   );
 };
