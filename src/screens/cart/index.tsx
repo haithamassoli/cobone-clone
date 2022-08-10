@@ -41,6 +41,12 @@ const CartScreen = ({navigation}: Props) => {
     };
   });
 
+  const total = cartItems.reduce(
+    // @ts-ignore
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  );
+
   return (
     <>
       <ScrollView style={{flex: 1, backgroundColor: Colors.light}}>
@@ -192,11 +198,7 @@ const CartScreen = ({navigation}: Props) => {
             fontWeight: 'bold',
             color: Colors.dark,
           }}>
-          {cartItems.reduce(
-            // @ts-ignore
-            (acc, item) => acc + item.price * item.quantity,
-            0,
-          )}
+          {total}
           SAR
         </Text>
       </View>
