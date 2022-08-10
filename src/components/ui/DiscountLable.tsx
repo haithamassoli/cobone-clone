@@ -7,9 +7,10 @@ import {View, Text} from 'react-native';
 type Props = {
   price: number;
   percentage: number;
+  withPrice?: boolean;
 };
 
-const DiscountLable = ({price, percentage}: Props) => {
+const DiscountLable = ({price, percentage, withPrice}: Props) => {
   const discountPrice = price - (price * percentage) / 100;
   return (
     <View
@@ -18,6 +19,14 @@ const DiscountLable = ({price, percentage}: Props) => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
+      {withPrice && (
+        <Text
+          style={{
+            fontWeight: 'bold',
+          }}>
+          {price} SAR
+        </Text>
+      )}
       <Text
         style={{
           backgroundColor: Colors.primary400,
@@ -29,9 +38,16 @@ const DiscountLable = ({price, percentage}: Props) => {
         }}>
         {percentage}%
       </Text>
-      <Text style={{textDecorationLine: 'line-through'}}>
-        SAR {discountPrice.toFixed(2)}
-      </Text>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Text style={{textDecorationLine: 'line-through'}}>
+          {discountPrice.toFixed(2)}
+        </Text>
+      </View>
     </View>
   );
 };
