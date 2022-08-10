@@ -12,6 +12,7 @@ import {ProductsDataType} from '@Types/Data';
 import {HomeStackParamList} from '@Types/Navigation';
 import {addToCart} from '@Redux/cartSlice';
 import {useDispatch, useSelector} from 'react-redux';
+import CartIcon from '@Components/CartIcon';
 
 type Props = StackScreenProps<HomeStackParamList, 'Product'>;
 
@@ -64,36 +65,7 @@ const ProductScreen = ({navigation, route}: Props) => {
       headerRight: () => (
         <View style={{flexDirection: 'row'}}>
           <View style={{marginEnd: 12}}>
-            {cart.length > 0 && (
-              <View
-                style={{
-                  position: 'absolute',
-                  top: -8,
-                  right: -6,
-                  width: 20,
-                  height: 20,
-                  zIndex: 10,
-                  borderRadius: 10,
-                  backgroundColor: Colors.gray,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Text
-                  style={{
-                    color: Colors.light,
-                    fontSize: 12,
-                    fontWeight: 'bold',
-                  }}>
-                  {cart.length}
-                </Text>
-              </View>
-            )}
-            <Feather
-              name="shopping-cart"
-              size={24}
-              color={Colors.primary400}
-              onPress={() => navigation.navigate('Cart')}
-            />
+            <CartIcon color={Colors.primary400} />
           </View>
           <Pressable>
             <Feather

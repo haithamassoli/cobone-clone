@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Colors from '@GlobalStyle/Colors';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
+import CartIcon from './CartIcon';
 
 const Header = () => {
   const navigation = useNavigation();
@@ -104,39 +105,7 @@ const Header = () => {
             style={{marginHorizontal: 12}}
             color={Colors.light}
           />
-          <View>
-            {cart.length > 0 && (
-              <View
-                style={{
-                  position: 'absolute',
-                  top: -8,
-                  right: -6,
-                  width: 20,
-                  height: 20,
-                  zIndex: 10,
-                  borderRadius: 10,
-                  backgroundColor: Colors.gray,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Text
-                  style={{
-                    color: Colors.light,
-                    fontSize: 12,
-                    fontWeight: 'bold',
-                  }}>
-                  {cart.length}
-                </Text>
-              </View>
-            )}
-            <Feather
-              name="shopping-cart"
-              size={24}
-              color={Colors.light}
-              // @ts-ignore
-              onPress={() => navigation.navigate('Cart')}
-            />
-          </View>
+          <CartIcon />
         </View>
       </View>
     </>
